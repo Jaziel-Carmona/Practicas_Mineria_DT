@@ -2,7 +2,7 @@
 
 # Librerias
 import pandas as pd
-from datetime import datetime
+#from datetime import datetime
 
 print("---------------------------------------------- ADQUISICION DE DATOS-----------------------------------------")
 
@@ -16,7 +16,7 @@ print("\n\n---------------------------------------------- DATA CLEANING --------
 
 #Renombrando los nombres de las columnas de nuestro dataframe
 df.columns = ["Nombre", "Plataforma", "Fecha_estreno", "Puntuacion", "Puntuacion_usuario",
-                           "Desarrollador", "Genero", " Num_jugadores", "Criticas", "Usuarios"]
+                "Desarrollador", "Genero", " Num_jugadores", "Criticas", "Usuarios"]
 
 
 # Limpieza de datos nulos
@@ -41,6 +41,13 @@ df = df.sort_values("Puntuacion_usuario")
 df.to_csv("games-data-clean.csv")
 
 dfc = pd.read_csv("games-data-clean.csv")
+
+def convertirPuntuacionUsuarios(puntuacion):
+    return puntuacion*10
+dfc["Puntuacion_usuario"] = dfc["Puntuacion_usuario"].apply(convertirPuntuacionUsuarios)
+dfc = dfc.drop(dfc[dfc["Puntuacion_usuario"] == 0].index)
+
+dfc.to_csv("games-data-clean.csv", index=False)
 
 print(dfc)
 

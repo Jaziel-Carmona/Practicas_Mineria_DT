@@ -1,21 +1,34 @@
-# PROBANDO COMANDOS EN EL CONJUNTO DE DATOS ESCOGIDO EN LA TAREA #1
+# PRACTICA 1: SELECCIONAR UN CONJUNTO DE DATOS DE NUESTRO INTERES
 
-# Libreria necesarias
+# Librerias
 from tabulate import tabulate
-from typing import Tuple, List
+#from typing import Tuple, List
 import pandas as pd
-from datetime import datetime
+#from datetime import datetime
 
-print("-------------- IMPORTACION DE LOS DATOS ------------")
+#se escogio una Dataframe de 10 columnas las cuales son las siguientes:
+# name 
+# platform 
+# r-date 
+# score
+# user score
+# developer : desarrollador de juegos
+# genre
+# players
+# crítics 
+# users
 
-#print("\nCOMANDO -> pandas.read_csv()")
-# Lee el conjunto de datos
+#El dataframe contiene 17,944 elementos
 
-def print_tabulate(df: pd.Practica_2):
+print("-------------- ADQUISICION DE DATOS ------------")
+
+
+def print_tabulate(df: pd.DataFrame):
     print(tabulate(df, headers=df.columns, tablefmt='orgtbl'))
 
 df = pd.read_csv("games-data.csv")
 
-
-# Imprime todos los datos, todas las columnas
+# Imprime todos los datos
 print_tabulate(df)
+
+#print(df)
