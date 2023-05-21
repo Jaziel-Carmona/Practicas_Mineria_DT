@@ -4,15 +4,15 @@
 import pandas as pd
 #from datetime import datetime
 
-print("---------------------------------------------- ADQUISICION DE DATOS-----------------------------------------")
+print("ADQUIRIMOS LOS DATOS")
 
 # Lectura de nuestro dataframe
 df = pd.read_csv("games-data.csv")
 
-print("\n---------------------------------------------------DATA ORIGINAL----------------------------------------------\n")
+print("\nDATAFRAME ORIGINAL\n")
 print(df)
 
-print("\n\n---------------------------------------------- DATA CLEANING --------------------------------------------\n")
+print("\n\nDATAFRAME LIMPIO\n")
 
 #Renombrando los nombres de las columnas de nuestro dataframe
 df.columns = ["Nombre", "Plataforma", "Fecha_estreno", "Puntuacion", "Puntuacion_usuario",
